@@ -17,8 +17,9 @@ var ClogSchema = new Schema({
 
 module.exports = function(options){
     options = options || {};
+    console.log( options.url );
     mongoose.connect(options.url, options.error || function(err){
-    	console.error(err);
+    	if(!!err) console.error(err);
     });
     mongoose.model('Clog', ClogSchema);
 }

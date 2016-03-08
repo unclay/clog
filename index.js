@@ -29,8 +29,11 @@ server.get('/c.gif', function(req, res, next){
 			query:      url.parse(req.url).query,
 			createtime: new Date()
 		}, function(err, doc){
+			if( !!err ) console.error(err);
 			res.send(204);
 		});
+	} else {
+		res.send(204);
 	}
 	return false;
 });
